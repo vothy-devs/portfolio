@@ -1,0 +1,88 @@
+<div class="pt-12 flex flex-row-reverse">
+    <button [routerLink]="['/projects']"
+        class="bg-sky-700 hover:bg-sky-900 text-white font-bold py-1 px-4 mx-1 rounded-full">
+        My Projects
+    </button>
+</div>
+<div>
+    <div class="container mx-auto py-8">
+        <div class="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">
+            <div class="col-span-4 sm:col-span-3">
+                <div class="bg-white shadow rounded-lg p-6 ">
+                    <div class="flex flex-col items-center ">
+                        <div class="block rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+                            style="background-image: url('../assets/photo1.jpg')">
+                        </div>
+                        <h1 class="text-xl font-bold">Vothy Prak</h1>
+                        <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"><svg
+                                class="h-4 fill-current text-sky-700 pr-4" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z" />
+                            </svg>{{jobTitle}}</p>
+
+                    </div>
+                    <hr class="my-6 border-t border-gray-300">
+                    <div class="flex flex-col">
+                        <span class="text-gray-700 uppercase font-bold tracking-wider mb-2 text-lg">Skills</span>
+                        <ul>
+                            <li class="mb-2 text-sm">JavaScript</li>
+                            <li class="mb-2 text-sm">React</li>
+                            <li class="mb-2 text-sm">Node.js</li>
+                            <li class="mb-2 text-sm">HTML/CSS</li>
+                            <li class="mb-2 text-sm">Tailwind Css</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-4 sm:col-span-9">
+                <div class="md:p-12 text-center lg:text-left bg-white shadow rounded-lg m-3">
+
+                    <h1 class="text-3xl font-bold pt-8 lg:pt-0">About Me</h1>
+                    <div class="mx-auto lg:mx-0 w-full pt-1 border-b-2 border-sky-500 opacity-25"></div>
+
+                    <p class="pt-8 text-sm">{{aboutMeDescription}}</p>
+                </div>
+
+
+                <div class="p-4 md:p-12 text-center lg:text-left bg-white shadow rounded-lg m-3">
+                    <h1 class="text-xl font-bold ">Experience</h1>
+                    <div class="mx-auto lg:mx-0 w-full pt-1 border-b-2 border-sky-500 opacity-25"></div>
+                    <div class="mb-6" *ngFor="let work of resumeData.work">
+                        <div class="flow-root justify-between gap-2 w-full">
+                            <div class="float-left"><span
+                                    class="text-gray-700 font-bold mr-1 text-md">{{work.title}}</span>
+                                <span class="text-gray-700 text-sm">at {{work.company}}</span>
+                            </div>
+                            <div class="float-right">
+                                <p><span class="text-gray-700 text-sm">{{work.years}}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-4/5">
+                            <p class="mt-2 text-sm" *ngFor="let desc of work.description">
+                                - {{desc}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 md:p-12 text-center lg:text-left bg-white shadow rounded-lg m-3">
+                    <h1 class="text-xl font-bold ">Education</h1>
+                    <div class="mx-auto lg:mx-0 w-full pt-1 border-b-2 border-sky-500 opacity-25"></div>
+                    <div class="mb-6" *ngFor="let school of resumeData.education">
+                        <div class="flow-root">
+                            <div class="float-left"><span
+                                    class="text-gray-700 font-bold mr-1 text-md">{{school.degree}}</span>
+                                <span class="text-gray-700 text-sm">at {{school.school}}</span>
+                            </div>
+                            <div class="float-right">
+                                <p><span class="text-gray-700 text-sm">{{school.graduated}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
