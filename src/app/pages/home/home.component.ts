@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   role = () => this.roles[this.currentRoleIndex()];
   name = signal('Vothy Prak');
-  location = signal('Kernersville, NC');
+  location = signal('North Carolina');
 
   ngOnInit() {
     this.intervalId = setInterval(() => {
