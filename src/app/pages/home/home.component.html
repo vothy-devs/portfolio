@@ -1,0 +1,61 @@
+<div class="space-y-16 py-4">
+
+    <header
+        class="flex flex-col-reverse md:flex-row items-center md:items-start justify-between gap-8 md:gap-12 pt-4 md:pt-8 text-center md:text-left">
+
+        <div class="space-y-6 flex-grow max-w-2xl">
+
+            <div
+                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 border border-sky-100 text-xs font-bold text-sky-700 shadow-sm shadow-sky-500/5">
+                <span class="flex h-1.5 w-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+                Operating in {{ location() }}
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
+                Hi, I'm <span
+                    class="bg-gradient-to-r from-sky-500 via-indigo-500 to-emerald-500 bg-clip-text text-transparent">{{
+                    name() }}</span>
+            </h1>
+
+            <div class="h-12 flex items-center justify-center md:justify-start">
+                <div
+                    class="bg-slate-900/5 border border-slate-900/10 backdrop-blur-sm rounded-xl px-4 py-2 role-slide-container">
+                    @for (activeTitle of [role()]; track activeTitle) {
+                    <p
+                        class="role-slide-text text-base sm:text-lg font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent tracking-tight">
+                        {{ activeTitle }}
+                    </p>
+                    }
+                </div>
+            </div>
+
+            <p class="text-slate-500 text-base sm:text-lg leading-relaxed font-medium font-sans">
+                I bridge the gap between business strategy, technical architecture, and field operations.
+                From engineering scalable web systems to managing IT initiatives, operating commercial sUAS flights,
+                and directing event operations for Backyard Battles, I build solutions that deliver impact.
+            </p>
+
+            <div class="pt-4 flex flex-col sm:flex-row justify-center md:justify-start gap-3">
+                <a routerLink="/portfolio"
+                    class="bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-600 hover:to-indigo-700 text-white font-bold px-6 py-3 rounded-xl shadow-md shadow-sky-500/20 hover:shadow-lg transition-all text-center text-sm">
+                    Explore Showcase
+                </a>
+                <a routerLink="/contact"
+                    class="bg-white border border-slate-200 hover:border-sky-300 hover:bg-sky-50 text-slate-700 font-bold px-6 py-3 rounded-xl transition-all text-center text-sm">
+                    Get In Touch
+                </a>
+            </div>
+
+        </div>
+
+        <div class="shrink-0 pb-4 md:pb-0">
+            <div
+                class="relative h-44 w-44 md:h-56 md:w-56 rounded-3xl overflow-hidden border-[6px] border-white shadow-xl shadow-slate-200/80 ring-1 ring-slate-200/50">
+                <img src="assets/profile.jpg" alt="Vothy Prak"
+                    class="h-full w-full object-cover object-center scale-105" />
+            </div>
+        </div>
+
+    </header>
+
+</div>

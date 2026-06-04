@@ -1,0 +1,55 @@
+[
+    {
+        "title": "Backyard Battles Entertainment",
+        "category": "Live Business",
+        "categoryClass": "bg-emerald-50 text-emerald-700 border-emerald-100",
+        "subtitle": "Operational Zone",
+        "description": "Founder and operator of a high-octane, portable FPV RC car racing platform serving the Piedmont Triad area. Managed hardware integration, 4-player video telemetry arrays, local brand strategy, and execution.",
+        "tags": [
+            "5.8GHz Analog Video",
+            "ELRS Radio Links",
+            "Operations"
+        ],
+        "filterGroup": "business"
+    },
+    {
+        "title": "Enterprise Service Application",
+        "category": "Software Engineering",
+        "categoryClass": "bg-sky-50 text-sky-700 border-sky-100",
+        "subtitle": "Web Deployment",
+        "description": "Architected and launched a fully production-optimized web application deployed on Netlify. Integrated custom meta configuration frameworks for advanced regional SEO optimization across the Kernersville operational map.",
+        "tags": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Netlify"
+        ],
+        "filterGroup": "software"
+    },
+    {
+        "title": "Custom 2.5\" Cinewhoop Telemetry Rig",
+        "category": "sUAS & Hardware",
+        "categoryClass": "bg-indigo-50 text-indigo-700 border-indigo-100",
+        "subtitle": "FAA Part 107",
+        "description": "Assembled and balanced a custom 2.5-inch cinematic flight platform optimized for close-proximity filming. Built around a Walksnail Moonlight digital HD VTX tracking layer, integrating hardware soldering, ESC calibration, and BetaFPV profiles.",
+        "tags": [
+            "Walksnail Digital HD",
+            "Betaflight",
+            "Electronics Assembly"
+        ],
+        "filterGroup": "hardware"
+    },
+    {
+        "title": "Data Modeling & Requirement Pipelines",
+        "category": "Systems Analysis",
+        "categoryClass": "bg-amber-50 text-amber-700 border-amber-100",
+        "subtitle": "Enterprise Architecture",
+        "description": "Designed comprehensive business requirement documentation (BRD) and structured relational schema architectures. Utilized complex SQL querying models to bridge functional operational criteria with automation and testing protocols.",
+        "tags": [
+            "SQL / Schema Design",
+            "BRD Frameworks",
+            "SDLC"
+        ],
+        "filterGroup": "systems"
+    }
+]

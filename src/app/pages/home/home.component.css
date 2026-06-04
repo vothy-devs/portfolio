@@ -1,0 +1,25 @@
+.role-slide-container {
+    overflow: hidden;
+    /* Keeps the sliding text clipped inside our frame */
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.role-slide-text {
+    display: block;
+    animation: slideDownBlur 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideDownBlur {
+    0% {
+        opacity: 0;
+        transform: translateY(-16px);
+        filter: blur(4px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
