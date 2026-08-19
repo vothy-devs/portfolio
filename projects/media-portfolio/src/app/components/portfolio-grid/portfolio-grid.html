@@ -1,0 +1,210 @@
+<main class="min-h-screen bg-white text-zinc-900 selection:bg-zinc-900 selection:text-white">
+    <!-- Unified Navigation Header -->
+    <header
+        class="flex items-center justify-between px-8 md:px-16 py-6 border-b border-zinc-100 max-w-7xl mx-auto sticky top-0 bg-white/90 backdrop-blur-md z-50">
+
+        <!-- Linked Header Logo & Subtitle Block -->
+        <a href="#" class="flex flex-col gap-1 group cursor-pointer py-2">
+
+            <!-- Top Row: Logo Image & Text Image Side-by-Side (Bigger Size) -->
+            <div class="flex items-center gap-3">
+                <img src="g16.png" alt="Prak Creative Media Icon" class="h-12 w-auto object-contain">
+                <img src="text17.png" alt="Prak Creative Media" class="h-10 w-auto object-contain">
+            </div>
+
+            <!-- Bottom Row: Subtext -->
+            <span class="text-[10px] uppercase tracking-[0.25em] text-zinc-400 font-light">
+                Real Estate Photography &bull; Event Media &bull; NC Drone Services
+            </span>
+
+        </a>
+        <!-- Center: Nav Links -->
+        <nav class="hidden md:flex gap-8 text-sm font-light tracking-wide text-zinc-600">
+            <a href="#grid" class="hover:text-zinc-950 transition-colors">Portfolio</a>
+            <a href="#featured" class="hover:text-zinc-950 transition-colors">Featured Works</a>
+            <a href="#carousel" class="hover:text-zinc-950 transition-colors">Archive</a>
+            <a href="#about" class="hover:text-zinc-950 transition-colors">About</a>
+        </nav>
+
+        <!-- Right: Call to Action -->
+        <div>
+            <a href="#contact"
+                class="bg-zinc-900 text-white text-xs uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-zinc-800 transition-colors shadow-sm">
+                Get in Touch
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-8 md:px-16 pt-24 pb-16">
+        <h1
+            class="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-tight text-zinc-900 max-w-4xl leading-[1.1]">
+            Cinematic media production & aerial perspective.
+        </h1>
+        <p class="mt-8 text-base md:text-lg font-light text-zinc-500 max-w-2xl leading-relaxed">
+            Professional visual storytelling specializing in architectural real estate photography, 4K licensed drone
+            operations, and high-impact commercial content across North Carolina.
+        </p>
+    </section>
+
+    <section id="featured" class="max-w-7xl mx-auto px-6 md:px-16 py-20 border-t border-zinc-100">
+        <div class="mb-12">
+            <span class="text-xs uppercase tracking-[0.2em] text-zinc-400 font-light">Narrative Stream</span>
+            <h2 class="mt-2 text-3xl font-extralight tracking-tight text-zinc-900">Featured Media Capabilities</h2>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MOBILE VIEW: Stacked Cards (Image + Text)  -->
+        <!-- ========================================== -->
+        <div class="block lg:hidden flex flex-col gap-16">
+            @for (section of sections; track section.id) {
+            <div class="flex flex-col gap-6 bg-white border border-zinc-100 rounded-lg p-4 shadow-sm">
+                <!-- Image for this specific card -->
+                <div class="w-full h-[45vh] bg-zinc-100 overflow-hidden rounded-md relative shadow-inner">
+                    <img [src]="section.image" [alt]="section.title" class="object-cover w-full h-full">
+                    <div
+                        class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 text-[10px] uppercase tracking-widest text-zinc-800 font-light shadow-sm">
+                        {{ section.meta }}
+                    </div>
+                </div>
+
+                <!-- Text for this specific card -->
+                <div class="flex flex-col">
+                    <span class="text-xs uppercase tracking-[0.2em] text-zinc-400 font-light">{{ section.category
+                        }}</span>
+                    <h3 class="mt-2 text-2xl font-normal tracking-tight text-zinc-900 leading-snug">
+                        {{ section.title }}
+                    </h3>
+                    <p class="mt-3 text-base font-light text-zinc-600 leading-relaxed">
+                        {{ section.description }}
+                    </p>
+                    <div class="mt-5">
+                        <span
+                            class="text-xs font-medium uppercase tracking-wider text-zinc-900 border-b border-zinc-900 pb-1 cursor-pointer">
+                            Explore Project &rarr;
+                        </span>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+
+        <!-- ========================================== -->
+        <!-- DESKTOP VIEW: Sticky Scrollytelling Grid   -->
+        <!-- ========================================== -->
+        <div class="hidden lg:grid grid-cols-12 gap-16 items-start">
+            <!-- LEFT: Sticky Image Frame -->
+            <div class="col-span-7 sticky top-28 h-[65vh] bg-zinc-100 overflow-hidden rounded-sm shadow-sm">
+                @for (section of sections; track section.id) {
+                <div [class]="activeSection() === section.id ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'"
+                    class="absolute inset-0 transition-all duration-700 ease-in-out">
+                    <img [src]="section.image" [alt]="section.title" class="object-cover w-full h-full">
+                    <div
+                        class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 text-xs uppercase tracking-widest text-zinc-800 font-light shadow-sm">
+                        {{ section.meta }}
+                    </div>
+                </div>
+                }
+            </div>
+
+            <!-- RIGHT: Scrolling Text Content Triggers -->
+            <div class="col-span-5 flex flex-col gap-32 py-12">
+                @for (section of sections; track section.id) {
+                <div #sectionBlock [attr.data-id]="section.id"
+                    class="flex flex-col justify-center min-h-[50vh] transition-opacity duration-500"
+                    [class]="activeSection() === section.id ? 'opacity-100' : 'opacity-30'">
+                    <span class="text-xs uppercase tracking-[0.2em] text-zinc-400 font-light">{{ section.category
+                        }}</span>
+                    <h3 class="mt-3 text-3xl font-normal tracking-tight text-zinc-900 leading-snug">
+                        {{ section.title }}
+                    </h3>
+                    <p class="mt-4 text-base font-light text-zinc-600 leading-relaxed">
+                        {{ section.description }}
+                    </p>
+                    <div class="mt-6">
+                        <span
+                            class="text-xs font-medium uppercase tracking-wider text-zinc-900 border-b border-zinc-900 pb-1 cursor-pointer">
+                            Explore Project &rarr;
+                        </span>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <app-photo-gallery />
+
+    <!-- About / Bio Section -->
+    <section id="about" class="border-t border-zinc-100 max-w-7xl mx-auto px-8 md:px-16 py-28">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+            <div class="lg:col-span-5">
+                <div class="aspect-[4/5] bg-zinc-100 overflow-hidden rounded-sm">
+                    <img src="/photos/headshot.jpg" alt="Vothy Prak"
+                        class="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+            </div>
+            <div class="lg:col-span-7 flex flex-col justify-center">
+                <span class="text-xs uppercase tracking-[0.2em] text-zinc-400 font-light">The Studio</span>
+                <h2 class="mt-3 text-3xl md:text-4xl font-extralight tracking-tight text-zinc-900 leading-snug">
+                    Capturing architectural precision and dynamic aerial narratives.
+                </h2>
+                <p class="mt-6 text-base font-light text-zinc-600 leading-relaxed">
+                    Based in North Carolina, Prak Creative Media delivers high-end visual solutions for real estate
+                    professionals, commercial brands, and live events. Leveraging professional wide-angle optics,
+                    FAA-licensed 4K drone capabilities, and advanced grading suites like DaVinci Resolve and Darktable,
+                    every frame is meticulously crafted for commercial impact.
+                </p>
+                <div class="mt-8 flex gap-8">
+                    <div>
+                        <span class="block text-2xl font-light text-zinc-900">FAA 107</span>
+                        <span class="text-xs uppercase tracking-wider text-zinc-400 font-light">Licensed Drone
+                            Pilot</span>
+                    </div>
+                    <div class="border-l border-zinc-200 pl-8">
+                        <span class="block text-2xl font-light text-zinc-900">4K / HDR</span>
+                        <span class="text-xs uppercase tracking-wider text-zinc-400 font-light">Aerial & Ground</span>
+                    </div>
+                    <div class="border-l border-zinc-200 pl-8">
+                        <span class="block text-2xl font-light text-zinc-900">Studio</span>
+                        <span class="text-xs uppercase tracking-wider text-zinc-400 font-light">Color & Retouch</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <footer id="contact" class="border-t border-zinc-100 bg-zinc-50/50">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 py-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.2em] text-zinc-400 font-light">Get in Touch</span>
+                    <h2 class="mt-3 text-3xl font-extralight tracking-tight text-zinc-900">
+                        Let's capture your next project.
+                    </h2>
+                    <p class="mt-4 text-sm font-light text-zinc-500 leading-relaxed max-w-md">
+                        Available for architectural real estate shoots, FAA-licensed aerial media commissions,
+                        professional portraits, and brand video content packaging.
+                    </p>
+                    <a href="mailto:contact@prakcreative.com"
+                        class="mt-8 inline-block text-sm font-normal tracking-wide text-zinc-900 border-b border-zinc-900 pb-1 hover:text-zinc-600 hover:border-zinc-600 transition-colors">
+                        contact@prakcreative.com
+                    </a>
+                </div>
+
+                <div class="flex flex-col justify-end md:items-end">
+                    <div class="text-xs uppercase tracking-[0.2em] text-zinc-400 font-light mb-4">Connect</div>
+                    <div class="flex flex-col md:items-end gap-3 text-sm font-light text-zinc-600">
+                        <a href="#" class="hover:text-zinc-950 transition-colors">Instagram</a>
+                        <a href="#" class="hover:text-zinc-950 transition-colors">LinkedIn</a>
+                        <a href="#" class="hover:text-zinc-950 transition-colors">YouTube</a>
+                    </div>
+                    <div class="mt-16 text-xs text-zinc-400 font-light">
+                        © 2026 Prak Creative Media. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</main>

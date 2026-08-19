@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "id": "real-estate-photography",
+      "title": "Real Estate Photography",
+      "category": "Photography",
+      "description": "Professional interior and exterior architectural photography captured with a Sony a6000 mirrorless system and wide-angle optics.",
+      "image": "assets/images/real-estate-sample.jpg",
+      "tags": ["Sony a6000", "Architecture", "Real Estate"]
+    },
+    {
+      "id": "backyard-battles",
+      "title": "Backyard Battles",
+      "category": "Business & Web",
+      "description": "Mobile entertainment service and interactive brand deployment featuring custom web applications built with Next.js and Tailwind CSS.",
+      "image": "assets/images/backyard-battles.jpg",
+      "tags": ["Next.js", "Branding", "Operations"]
+    },
+    {
+      "id": "drone-rc-tech",
+      "title": "Drone & RC Engineering",
+      "category": "Hardware & Tech",
+      "description": "Custom First-Person View (FPV) drone builds and micro-drift RC car setups designed for high-performance telemetry and racing.",
+      "image": "assets/images/drone-rc.jpg",
+      "tags": ["FPV Drones", "RC Customization", "Engineering"]
+    }
+  ]
+}

@@ -2,7 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": false
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -68,6 +69,85 @@
             },
             "development": {
               "buildTarget": "vothy-portfolio:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
+    },
+    "media-portfolio": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/media-portfolio",
+      "sourceRoot": "projects/media-portfolio/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/media-portfolio/src/main.ts",
+            "tsConfig": "projects/media-portfolio/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/media-portfolio/public"
+              },
+              {
+                "glob": "**/*",
+                "input": "projects/media-portfolio/src/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "projects/media-portfolio/src/assets/photos"
+              }
+            ],
+            "styles": [
+              "projects/media-portfolio/src/styles.css"
+            ],
+            "server": "projects/media-portfolio/src/main.server.ts",
+            "outputMode": "server",
+            "security": {
+              "allowedHosts": []
+            },
+            "ssr": {
+              "entry": "projects/media-portfolio/src/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "media-portfolio:build:production"
+            },
+            "development": {
+              "buildTarget": "media-portfolio:build:development"
             }
           },
           "defaultConfiguration": "development"
