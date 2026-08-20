@@ -27,10 +27,11 @@ export interface CarouselImage {
 }
 
 @Component({
-  selector: 'media-portfolio',
+  selector: 'portfolio-grid',
   standalone: true,
   imports: [PhotoGalleryComponent],
-  templateUrl: './portfolio-grid.html'
+  templateUrl: './portfolio-grid.html',
+  styleUrl: './portfolio-grid.css'
 })
 export class PortfolioGridComponent implements AfterViewInit, OnDestroy {
   // 1. Portfolio Grid State
@@ -84,24 +85,24 @@ export class PortfolioGridComponent implements AfterViewInit, OnDestroy {
     {
       id: 'real-estate',
       category: 'Real Estate Photography',
-      title: 'Architectural Interiors & Lighting',
-      description: 'Precision interior and exterior captures emphasizing natural light, dynamic perspective, and spatial balance using wide-angle optics and deliberate staging.',
+      title: 'Shaping Space Through Light & Composition',
+      description: 'Every room has a narrative. We capture architectural depth, natural textures, and spatial balance using professional framing and precise lighting to showcase properties at their absolute best.',
       image: 'https://images.unsplash.com/photo-1487528278747-ba99ed528ebc?auto=format&fit=crop&w=1200&q=80',
       meta: 'Sony a6000 • Wide-Angle Optics • Darktable RAW'
     },
     {
       id: 'aerial',
       category: 'Aerial & Drone Production',
-      title: 'Cinematic 4K Aerial Perspectives',
-      description: 'FAA-certified aerial operations providing stunning high-altitude context, smooth tracking, and immersive property overviews.',
+      title: 'Expanding Horizons from Above',
+      description: 'Elevate your project with FAA-certified aerial perspectives that provide stunning geographic context, smooth cinematic tracking, and breathtaking property scales.',
       image: 'https://images.unsplash.com/photo-1631052941794-2a6e26d4ac17?auto=format&fit=crop&w=1200&q=80',
       meta: 'Mavic 4 Pro • DaVinci Resolve Studio • 4K Cinematic'
     },
     {
       id: 'commercial',
       category: 'Social Media & Brand Content',
-      title: 'High-Retention Video & Reels',
-      description: 'Engaging vertical and horizontal motion content engineered for brands, local businesses, and modern digital marketing channels.',
+      title: 'Motion & Detail That Drives Engagement',
+      description: 'From local commercial features to dynamic digital content, we deliver high-retention video and meticulous color grading engineered to stop the scroll and elevate your brand.',
       image: '/photos/carphoto.jpg',
       meta: 'Piedmont Triad, NC • DaVinci Color Grade'
     }
@@ -115,7 +116,7 @@ export class PortfolioGridComponent implements AfterViewInit, OnDestroy {
   @ViewChild('carouselTrack') carouselTrack!: ElementRef;
   @ViewChild('carouselSection') carouselSection!: ElementRef;
   carouselInView = signal<boolean>(false);
-  
+
   carouselImages: CarouselImage[] = [
     { id: 1, title: 'Interior Light Study', category: 'Real Estate', url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80' },
     { id: 2, title: 'Aerial Property Overview', category: 'Drone Video', url: 'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80' },
@@ -141,7 +142,7 @@ export class PortfolioGridComponent implements AfterViewInit, OnDestroy {
   private sectionObserver!: IntersectionObserver;
   private carouselObserver!: IntersectionObserver;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
