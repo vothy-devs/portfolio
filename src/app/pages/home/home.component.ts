@@ -1,18 +1,20 @@
 import { Title } from '@angular/platform-browser';
 import { Component, signal, OnInit, OnDestroy, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TimelineComponent } from '../../components/timeline/timeline.component';
+import { SkillsGraphComponent } from '../../components/skills-graphs/skills-graph.component';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  imports: [RouterLink, TimelineComponent, SkillsGraphComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit, OnDestroy {
   roles = [
     'Business Systems Analyst',
-    'IT Project Manager',
-    'Software Engineer',
+    'Technical Project Manager',
+    'Software Engineer in Test',
     'Commercial Drone Pilot'
   ];
   currentRoleIndex = signal(0);
@@ -21,13 +23,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   private intervalId: any;
 
   role = () => this.roles[this.currentRoleIndex()];
-  name = signal('Vothy Prak');
+  name = signal('Vothy');
   location = signal('North Carolina');
 
   private titleService = inject(Title);
 
   constructor() {
-    this.titleService.setTitle('Home | Vothy Prak | Technical Analyst');
+    this.titleService.setTitle('Home | Vothy Prak | Technical Project Manager');
   }
 
   ngOnInit() {

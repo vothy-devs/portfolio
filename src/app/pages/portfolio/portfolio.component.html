@@ -1,91 +1,55 @@
-<div class="max-w-5xl mx-auto py-4 space-y-8">
-
-    <div class="text-center md:text-left space-y-2">
-        <div
-            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 border border-sky-100 text-xs font-bold text-sky-700 shadow-sm">
-            <span class="flex h-1.5 w-1.5 rounded-full bg-sky-400"></span>
-            Project Registry
-        </div>
-        <h1 class="text-3xl font-extrabold tracking-tight text-slate-900">Featured Builds & Operations</h1>
-        <p class="text-slate-500 text-sm max-w-xl font-medium">
-            A curated matrix of systems analysis, full-stack application builds, commercial sUAS missions, and local
-            business operations.
-        </p>
+<main class="min-h-[85vh] flex items-center justify-center px-4">
+  <div class="max-w-xl w-full space-y-6">
+    
+    <!-- Header Status Indicator -->
+    <div class="flex items-center justify-between border-b border-slate-200/80 pb-4">
+      <div class="flex items-center gap-2.5">
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+        </span>
+        <span class="font-mono text-xs font-bold tracking-wider text-slate-700 uppercase">SYSTEM DEPLOYMENT IN PROGRESS</span>
+      </div>
+      <div class="font-mono text-[11px] text-slate-400">
+        STATUS: 503_REBUILD
+      </div>
     </div>
 
-    <div class="flex flex-wrap items-center gap-2 border-b border-slate-100 pb-4">
-        <button (click)="setFilter('all')" [class.bg-slate-900]="activeFilter() === 'all'"
-            [class.text-white]="activeFilter() === 'all'" [class.bg-slate-50]="activeFilter() !== 'all'"
-            [class.text-slate-600]="activeFilter() !== 'all'"
-            class="px-4 py-1.5 rounded-xl text-xs font-bold transition-all border border-transparent hover:border-slate-200">
-            All Work
-        </button>
-        <button (click)="setFilter('systems')" [class.bg-slate-900]="activeFilter() === 'systems'"
-            [class.text-white]="activeFilter() === 'systems'" [class.bg-slate-50]="activeFilter() !== 'systems'"
-            [class.text-slate-600]="activeFilter() !== 'systems'"
-            class="px-4 py-1.5 rounded-xl text-xs font-bold transition-all border border-transparent hover:border-slate-200">
-            Systems Analysis
-        </button>
-        <button (click)="setFilter('software')" [class.bg-slate-900]="activeFilter() === 'software'"
-            [class.text-white]="activeFilter() === 'software'" [class.bg-slate-50]="activeFilter() !== 'software'"
-            [class.text-slate-600]="activeFilter() !== 'software'"
-            class="px-4 py-1.5 rounded-xl text-xs font-bold transition-all border border-transparent hover:border-slate-200">
-            Software Engineering
-        </button>
-        <button (click)="setFilter('hardware')" [class.bg-slate-900]="activeFilter() === 'hardware'"
-            [class.text-white]="activeFilter() === 'hardware'" [class.bg-slate-50]="activeFilter() !== 'hardware'"
-            [class.text-slate-600]="activeFilter() !== 'hardware'"
-            class="px-4 py-1.5 rounded-xl text-xs font-bold transition-all border border-transparent hover:border-slate-200">
-            sUAS & Hardware
-        </button>
-        <button (click)="setFilter('business')" [class.bg-slate-900]="activeFilter() === 'business'"
-            [class.text-white]="activeFilter() === 'business'" [class.bg-slate-50]="activeFilter() !== 'business'"
-            [class.text-slate-600]="activeFilter() !== 'business'"
-            class="px-4 py-1.5 rounded-xl text-xs font-bold transition-all border border-transparent hover:border-slate-200">
-            Business Operations
-        </button>
+    <!-- Main Notice -->
+    <div class="space-y-2">
+      <h1 class="text-2xl font-extrabold tracking-tight text-slate-900">Environment Refresh Active</h1>
+      <p class="text-slate-500 text-sm font-medium leading-relaxed">
+        The portfolio cluster is undergoing a comprehensive architecture update. Core routing and components are being re-compiled. Please stand by.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-        @for (project of filteredProjects(); track project.title) {
-        <div
-            class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:border-sky-300 hover:shadow-md transition-all duration-200 relative overflow-hidden group">
-            <div class="space-y-4">
-
-                <div class="flex items-center justify-between">
-                    <span [class]="project.categoryClass" class="px-2.5 py-1 rounded-md text-xs font-bold border">
-                        {{ project.category }}
-                    </span>
-                    <span class="text-xs font-bold text-slate-400 tracking-wider">
-                        {{ project.subtitle }}
-                    </span>
-                </div>
-
-                <div class="space-y-1.5">
-                    <h3 class="text-lg font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
-                        {{ project.title }}
-                    </h3>
-                    <p class="text-slate-500 text-xs leading-relaxed font-medium">
-                        {{ project.description }}
-                    </p>
-                </div>
-
-                <div class="flex flex-wrap gap-1.5 pt-2">
-                    @for (tag of project.tags; track tag) {
-                    <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[10px] font-bold">
-                        {{ tag }}
-                    </span>
-                    }
-                </div>
-
-            </div>
-        </div>
-        } @empty {
-        <div class="col-span-full py-12 text-center text-sm font-medium text-slate-400">
-            No active builds loaded under this segment entry.
-        </div>
+    <!-- Terminal Output Box -->
+    <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 shadow-xl font-mono text-xs space-y-2 text-slate-300">
+      <div class="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-3 text-slate-500 text-[10px]">
+        <span>root&#64;prak-cluster:~# tail -f /var/log/deploy.log</span>
+        <span class="text-emerald-400 animate-pulse">● LIVE</span>
+      </div>
+      
+      <div class="space-y-1.5 max-h-40 overflow-y-auto">
+        @for (log of terminalLogs(); track log) {
+          <div class="flex items-start gap-2">
+            <span class="text-sky-400 select-none">&gt;</span>
+            <span class="leading-relaxed">{{ log }}</span>
+          </div>
         }
-
+      </div>
     </div>
-</div>
+
+    <!-- Footer Progress bar -->
+    <div class="space-y-2 pt-2">
+      <div class="flex justify-between items-center text-xs font-mono text-slate-400">
+        <span>COMPILING ASSETS</span>
+        <span class="text-sky-600 font-bold animate-pulse">PROCESSING...</span>
+      </div>
+      <div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden border border-slate-200/60">
+        <div class="h-full bg-gradient-to-r from-sky-500 via-indigo-500 to-emerald-500 rounded-full animate-pulse w-3/4"></div>
+      </div>
+    </div>
+
+  </div>
+</main>

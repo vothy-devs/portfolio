@@ -1,15 +1,5 @@
-import { Component, OnInit, inject, signal, computed } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-export interface Project {
-  title: string;
-  category: string;
-  categoryClass: string;
-  subtitle: string;
-  description: string;
-  tags: string[];
-  filterGroup: string; // Used to match our active button selections
-}
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-portfolio',
@@ -17,31 +7,36 @@ export interface Project {
   imports: [],
   templateUrl: './portfolio.component.html'
 })
-export class PortfolioComponent implements OnInit {
-  private http = inject(HttpClient);
+export class PortfolioComponent implements OnInit, OnDestroy {
+    terminalLogs = signal<string[]>([
+        'Initializing kernel environment...',
+        'Mounting Next.js & Angular build cluster...',
+        'Syncing Cloudinary media buckets & assets...',
+        'Executing deployment pipeline v4.2.0...'
+    ]);
 
-  // Storage arrays
-  allProjects = signal<Project[]>([]);
-  activeFilter = signal<string>('all');
+    private intervalId: any;
 
-  // Dynamic Computed Signal: Automatically updates the grid layout whenever the user clicks a filter pill!
-  filteredProjects = computed(() => {
-    const filter = this.activeFilter();
-    const projects = this.allProjects();
+    ngOnInit() {
+        const extraLogs = [
+            'Running static type check across TypeScript definitions...',
+            'Optimizing Tailwind CSS production bundle...',
+            'Verifying SSL certificates and routing tables...',
+            'Standby: Rebuilding DOM nodes...'
+        ];
+        
+        let index = 0;
+        this.intervalId = setInterval(() => {
+            if (index < extraLogs.length) {
+                this.terminalLogs.update(logs => [...logs, extraLogs[index]]);
+                index++;
+            }
+        }, 2500);
+    }
 
-    if (filter === 'all') return projects;
-    return projects.filter(p => p.filterGroup === filter);
-  });
-
-  ngOnInit() {
-    // 🚨 Added leading slash '/' to guarantee Angular hits the public assets directly instead of the active route
-    this.http.get<Project[]>('assets/data/projects.json').subscribe({
-      next: (data) => this.allProjects.set(data),
-      error: (err) => console.error('Failed to load project registry:', err)
-    });
-  }
-
-  setFilter(group: string) {
-    this.activeFilter.set(group);
-  }
+    ngOnDestroy() {
+        if (this.intervalId) {
+            clearInterval(this.intervalId);
+        }
+    }
 }
