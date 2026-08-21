@@ -49,26 +49,25 @@ export class PortfolioGridComponent implements OnInit, AfterViewInit, OnDestroy 
       .format('auto')
       .quality('auto');
   }
-getPCMIcon(): CloudinaryImage {
-  return this.cld
-    .image('PCMIcon')
-    .resize(scale().width(50)) // Smaller width suited for header display
-    .format('auto')
-    .quality('auto');
-}
 
-getPCMText(): CloudinaryImage {
-  return this.cld
-    .image('PCMText')
-    .resize(scale().width(75)) // Appropriate width for text logo
-    .format('auto')
-    .quality('auto');
-}
+  getPCMIcon(): CloudinaryImage {
+    return this.cld
+      .image('PCMIcon')
+      .format('auto')
+      .quality('auto');
+  }
+
+  getPCMText(): CloudinaryImage {
+    return this.cld
+      .image('PCMText')
+      .format('auto')
+      .quality('auto');
+  }
 
   // Sticky Scroll Storytelling State with Cloudinary Asset IDs
   activeSection = signal<string>('real-estate');
   @ViewChildren('sectionBlock') sectionBlocks!: QueryList<ElementRef>;
-  
+
   sections: StorySection[] = [
     {
       id: 'real-estate',

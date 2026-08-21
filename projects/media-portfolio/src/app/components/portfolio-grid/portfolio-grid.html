@@ -1,38 +1,39 @@
 <main class="min-h-screen bg-white text-zinc-900 selection:bg-zinc-900 selection:text-white">
-    <!-- Unified Navigation Header -->
-    <header
-        class="flex items-center justify-between px-8 md:px-16 py-6 border-b border-zinc-100 max-w-7xl mx-auto sticky top-0 bg-white/90 backdrop-blur-md z-50">
+<header class="flex items-center justify-between px-4 sm:px-8 md:px-16 py-3 sm:py-4 border-b border-zinc-100 max-w-7xl mx-auto sticky top-0 bg-white/90 backdrop-blur-md z-50">
 
-        <!-- Linked Header Logo & Subtitle Block -->
-        <a href="#" class="flex flex-col gap-1 group cursor-pointer py-2">
-            <!-- Top Row: Logo Image & Text Image Side-by-Side -->
-            <div class="flex items-center gap-3">
-                <advanced-image [cldImg]="getPCMIcon()" [plugins]="plugins" alt="Prak Creative Media Icon"
-                    class="h-12 w-auto object-contain" />
-                <advanced-image [cldImg]="getPCMText()" [plugins]="plugins" alt="Prak Creative Media"
-                    class="h-10 w-auto object-contain" />
-            </div>
-            <!-- Bottom Row: Subtext -->
-            <span class="text-[10px] uppercase tracking-[0.25em] text-zinc-400 font-light">
-                Real Estate Photography &bull; Event Media &bull; NC Drone Services
-            </span>
-        </a>
+    <!-- Linked Header Logo & Subtitle Block -->
+    <a href="#" class="flex flex-col gap-0.5 group cursor-pointer">
+        <!-- Top Row: Logo Image & Text Image Side-by-Side -->
+        <div class="flex items-center gap-2 sm:gap-3">
+            <advanced-image [cldImg]="getPCMIcon()" [plugins]="plugins" alt="Prak Creative Media Icon"
+                class="w-14 sm:w-14 md:w-14 lg:w-16 h-auto object-contain shrink-0" />
+            <advanced-image [cldImg]="getPCMText()" [plugins]="plugins" alt="Prak Creative Media"
+                class="w-14 sm:w-14 md:w-14 lg:w-16 h-auto object-contain shrink-0" />
+        </div>
+        <!-- Bottom Row: Subtext -->
+        <span class="hidden sm:block text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-light">
+            Real Estate Photography &bull; Event Media &bull; NC Drone Services
+        </span>
+    </a>
 
-        <!-- Center: Nav Links -->
-        <nav class="hidden md:flex gap-8 text-sm font-light tracking-wide text-zinc-600">
+    <!-- Navigation & Call to Action Wrapper -->
+    <div class="flex items-center gap-3 sm:gap-6 md:gap-8">
+        <!-- Nav Links -->
+        <nav class="flex items-center gap-3 sm:gap-6 md:gap-8 text-xs sm:text-sm font-semibold sm:font-light tracking-wide text-zinc-800 md:text-zinc-600">
             <a href="#services" class="hover:text-zinc-950 transition-colors">Services</a>
-            <a href="#featured" class="hover:text-zinc-950 transition-colors">Featured Work</a>
+            <a href="#featured" class="hover:text-zinc-950 transition-colors">Work</a>
             <a href="#about" class="hover:text-zinc-950 transition-colors">About</a>
         </nav>
 
-        <!-- Right: Call to Action -->
+        <!-- Call to Action -->
         <div>
             <a href="#contact"
-                class="bg-zinc-900 text-white text-xs uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-zinc-800 transition-colors shadow-sm">
-                Get in Touch
+                class="bg-zinc-900 text-white text-[10px] sm:text-xs uppercase tracking-widest px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full hover:bg-zinc-800 transition-colors shadow-sm whitespace-nowrap">
+                Connect
             </a>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Hero Section -->
     <section class="max-w-7xl mx-auto px-8 md:px-16 pt-24 pb-16">
@@ -213,4 +214,4 @@
             </div>
         </div>
     </footer>
-</main>``
+</main>
