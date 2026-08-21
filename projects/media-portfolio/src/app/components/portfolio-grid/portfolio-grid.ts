@@ -75,7 +75,7 @@ export class PortfolioGridComponent implements OnInit, AfterViewInit, OnDestroy 
       title: 'Shaping Space Through Light & Composition',
       description: 'Every room has a narrative. We capture architectural depth, natural textures, and spatial balance using professional framing and precise lighting to showcase properties at their absolute best.',
       imagePublicId: 'photohire',
-      meta: 'Currently looking to expand portfolio. Connect for potential free shoot.'
+      meta: 'Portfolio Expansion • Inquire for Special Launch Pricing. (free)'
     },
     {
       id: 'aerial',
@@ -83,7 +83,7 @@ export class PortfolioGridComponent implements OnInit, AfterViewInit, OnDestroy 
       title: 'Expanding Horizons from Above',
       description: 'Elevate your project with FAA-certified aerial perspectives that provide stunning geographic context, smooth cinematic tracking, and breathtaking property scales.',
       imagePublicId: 'photoM4Drone',
-      meta: 'Looking to expand portfolio. Connect for a free consultation.'
+      meta: 'FAA Certified • Complimentary Aerial Consultation (free)'
     },
     {
       id: 'commercial',
@@ -91,7 +91,7 @@ export class PortfolioGridComponent implements OnInit, AfterViewInit, OnDestroy 
       title: 'Motion & Detail That Drives Engagement',
       description: 'From local commercial features to dynamic digital content, we deliver high-retention video and meticulous color grading engineered to stop the scroll and elevate your brand.',
       imagePublicId: 'carphoto',
-      meta: 'New and ready to work!'
+      meta: 'Now Booking • Commercial & Brand Projects (free)'
     }
   ];
 
