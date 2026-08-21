@@ -5,19 +5,19 @@
 
         <!-- Linked Header Logo & Subtitle Block -->
         <a href="#" class="flex flex-col gap-1 group cursor-pointer py-2">
-
-            <!-- Top Row: Logo Image & Text Image Side-by-Side (Bigger Size) -->
+            <!-- Top Row: Logo Image & Text Image Side-by-Side -->
             <div class="flex items-center gap-3">
-                <img src="g16.png" alt="Prak Creative Media Icon" class="h-12 w-auto object-contain">
-                <img src="text17.png" alt="Prak Creative Media" class="h-10 w-auto object-contain">
+                <advanced-image [cldImg]="getPCMIcon()" [plugins]="plugins" alt="Prak Creative Media Icon"
+                    class="h-12 w-auto object-contain" />
+                <advanced-image [cldImg]="getPCMText()" [plugins]="plugins" alt="Prak Creative Media"
+                    class="h-10 w-auto object-contain" />
             </div>
-
             <!-- Bottom Row: Subtext -->
             <span class="text-[10px] uppercase tracking-[0.25em] text-zinc-400 font-light">
                 Real Estate Photography &bull; Event Media &bull; NC Drone Services
             </span>
-
         </a>
+
         <!-- Center: Nav Links -->
         <nav class="hidden md:flex gap-8 text-sm font-light tracking-wide text-zinc-600">
             <a href="#services" class="hover:text-zinc-950 transition-colors">Services</a>
@@ -46,6 +46,7 @@
         </p>
     </section>
 
+    <!-- Services / Storytelling Section -->
     <section id="services" class="max-w-7xl mx-auto px-6 md:px-16 py-20 border-t border-zinc-100">
         <div class="mb-12">
             <span class="text-xs uppercase tracking-[0.2em] text-zinc-400 font-light">Let's Work!</span>
@@ -58,16 +59,17 @@
         <div class="block lg:hidden flex flex-col gap-16">
             @for (section of sections; track section.id) {
             <div class="flex flex-col gap-6 bg-white border border-zinc-100 rounded-lg p-4 shadow-sm">
-                <!-- Image for this specific card -->
+                <!-- Cloudinary Image for Mobile Card -->
                 <div class="w-full h-[45vh] bg-zinc-100 overflow-hidden rounded-md relative shadow-inner">
-                    <img [src]="section.image" [alt]="section.title" class="object-cover w-full h-full">
+                    <advanced-image [cldImg]="getCloudinaryImage(section.imagePublicId)" [plugins]="plugins"
+                        class="object-cover w-full h-full" />
                     <div
                         class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 text-[10px] uppercase tracking-widest text-zinc-800 font-light shadow-sm">
                         {{ section.meta }}
                     </div>
                 </div>
 
-                <!-- Text for this specific card -->
+                <!-- Text for Mobile Card -->
                 <div class="flex flex-col">
                     <span class="text-xs uppercase tracking-[0.2em] text-zinc-400 font-light">{{ section.category
                         }}</span>
@@ -93,11 +95,12 @@
         <!-- ========================================== -->
         <div class="hidden lg:grid grid-cols-12 gap-16 items-start">
             <!-- LEFT: Sticky Image Frame -->
-            <div class="col-span-7 sticky top-[250px] h-[65vh] bg-zinc-100 overflow-hidden rounded-sm shadow-sm">
+            <div class="col-span-7 sticky top-[200px] h-[65vh] bg-zinc-100 overflow-hidden rounded-sm shadow-sm">
                 @for (section of sections; track section.id) {
                 <div [class]="activeSection() === section.id ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'"
                     class="absolute inset-0 transition-all duration-700 ease-in-out">
-                    <img [src]="section.image" [alt]="section.title" class="object-cover w-full h-full">
+                    <advanced-image [cldImg]="getCloudinaryImage(section.imagePublicId)" [plugins]="plugins"
+                        class="object-cover w-full h-full" />
                     <div
                         class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 text-xs uppercase tracking-widest text-zinc-800 font-light shadow-sm">
                         {{ section.meta }}
@@ -132,6 +135,7 @@
         </div>
     </section>
 
+    <!-- Featured Photo Gallery Component -->
     <section id="featured">
         <app-photo-gallery />
     </section>
@@ -141,8 +145,8 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
             <div class="lg:col-span-5">
                 <div class="aspect-[4/5] bg-zinc-100 overflow-hidden rounded-sm">
-                    <img src="/photos/headshot.jpg" alt="Vothy Prak"
-                        class="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700">
+                    <advanced-image [cldImg]="getHeadshotImage()" [plugins]="plugins" alt="Vothy Prak"
+                        class="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700" />
                 </div>
             </div>
             <div class="lg:col-span-7 flex flex-col justify-center">
@@ -153,7 +157,7 @@
                 <p class="mt-6 text-base font-light text-zinc-600 leading-relaxed">
                     Based in North Carolina, Prak Creative Media delivers clean, professional photography and dynamic
                     aerial perspectives tailored to elevate your brand, showcase real estate, and bring your vision to
-                    life with clarity and precision..
+                    life with clarity and precision.
                 </p>
                 <div class="mt-8 flex gap-8">
                     <div>
@@ -191,11 +195,22 @@
 
                 <div class="flex flex-col justify-end md:items-end">
                     <div class="text-xs uppercase tracking-[0.2em] text-zinc-400 font-light mb-4">Connect</div>
-                    <div class="mt-16 text-xs text-zinc-400 font-light">
-                        © 2026 Prak Creative Media. All rights reserved.
+
+                    <!-- Contact Info Links -->
+                    <div class="flex flex-col md:items-end gap-2 text-sm font-light text-zinc-600 mb-8">
+                        <a href="mailto:dev.vothyprak@gmail.com" class="hover:text-zinc-950 transition-colors">
+                            dev.vothyprak&#64;gmail.com
+                        </a>
+                        <a href="tel:+13365177626" class="hover:text-zinc-950 transition-colors">
+                            336.517.7626
+                        </a>
+                    </div>
+
+                    <div class="text-xs text-zinc-400 font-light">
+                        &copy; 2026 Prak Creative Media. All rights reserved.
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-</main>
+</main>``

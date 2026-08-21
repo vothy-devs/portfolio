@@ -17,10 +17,6 @@ export interface SkillCategory {
       
       <!-- Section Header -->
       <div class="mb-6 space-y-1">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-xs font-bold text-emerald-700 shadow-sm">
-          <span class="flex h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-          Core Competencies
-        </div>
         <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Engineering Leadership & Technical Execution</h2>
       </div>
 
@@ -56,32 +52,34 @@ export interface SkillCategory {
       </div>
 
     </section>
+
+    
   `
 })
 export class SkillsGraphComponent {
   skillCategories = signal<SkillCategory[]>([
     {
-      title: 'Leadership',
-      badge: 'Agile Coaching',
+      title: 'Coaching',
+      badge: 'Leadership',
       skills: ['Servant Leadership', 'Cross-Squad Facilitation', 'Impediment Removal', 'Stakeholder Alignment'],
       accentColor: 'bg-sky-500'
     },
     {
-      title: 'Delivery',
-      badge: 'Empirical Flow',
-      skills: ['Sprint Goal Optimization', 'Velocity Tracking', 'Work Breakdown', 'Predictive Burndown Health'],
+      title: 'Empirical Data',
+      badge: 'Delivery',
+      skills: ['Sprint Goal Optimization', 'Velocity Tracking', 'Work Breakdown', 'Predictive Burndown'],
       accentColor: 'bg-indigo-500'
     },
     {
-      title: 'Development',
-      badge: 'Scrum Artifacts',
-      skills: ['Backlog Refinement', 'Sprint Planning Ceremonies', 'Retrospective Facilitation', 'Release Train Governance'],
+      title: 'Efficient',
+      badge: 'Development',
+      skills: ['Backlog Refinement', 'Sprint Planning', 'Retrospective Facilitation', 'Release Governance'],
       accentColor: 'bg-emerald-500'
     },
     {
       title: 'Quality',
-      badge: 'Standards',
-      skills: ['Definition of Done (DoD)', 'Definition of Ready (DoR)', 'Continuous Improvement', 'Risk & Dependency Mitigation'],
+      badge: 'Standard',
+      skills: ['Definition of Ready (DoR)', 'Definition of Done (DoD)', 'Continuous Improvement', 'Risk Mitigation'],
       accentColor: 'bg-amber-500'
     }
   ]);
